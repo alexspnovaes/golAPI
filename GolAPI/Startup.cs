@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using GOL.Service.Configuration;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace GolAPI
 {
@@ -27,8 +22,31 @@ namespace GolAPI
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
-            services.RegisterDependecyInjector();
+            services.RegisterDependencInjector();
+
+            services.AddSwaggerGen(s =>
+            {
+                s.SwaggerDoc("v1", new Info
+                {
+                    Version = "v1",
+                    Title = "GOL API",
+                    Description = "GOL API V1"
+                });
+                s.IncludeXmlComments("GolAPI.Service.xml");
+            });
         }
+
+        //private string MountPatchXmlSwagger()
+        //{
+        //    string appPath =
+        //           PlatformServices.Default.Application.ApplicationBasePath;
+        //    string appName =
+        //        PlatformServices.Default.Application.ApplicationName;
+        //    string caminhoXmlDoc =
+        //        Path.Combine(appPath, $"{appName}.xml");
+
+        //    return caminhoXmlDoc;
+        //}
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -44,6 +62,14 @@ namespace GolAPI
             }
 
             app.UseHttpsRedirection();
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(s =>
+            {
+                s.SwaggerEndpoint("/swagger/v1/swagger.json", "GOL API v1");
+            });
+            
             app.UseMvc();
         }
     }

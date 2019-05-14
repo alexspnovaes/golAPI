@@ -7,9 +7,8 @@ namespace GOL.Domain.Entities.Airplane
 {
     public class Airplane : BaseEntity
     {
-        public Airplane(Guid id, string codigoAviao, string modelo, int qtdPassageiros )
+        public Airplane(string codigoAviao, string modelo, int qtdPassageiros )
         {
-            Id = id;
             CodigoAviao = codigoAviao;
             Modelo = modelo;
             QtdPassageiros = qtdPassageiros;
