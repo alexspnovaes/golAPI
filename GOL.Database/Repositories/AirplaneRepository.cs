@@ -16,9 +16,10 @@ namespace GOL.Database.Repositories
         {
             _context = context;
         }
-        public void Add(Airplane airplane)
+        public Guid Add(Airplane airplane)
         {
             _context.Airplanes.Add(airplane);
+            return airplane.Id;
         }
 
         public void Delete(Guid id)
@@ -40,7 +41,7 @@ namespace GOL.Database.Repositories
 
         public void Update(Airplane airplane)
         {
-            _context.Airplanes.Update(airplane);
+            _context.Airplanes.Update(airplane);            
         }
     }
 }

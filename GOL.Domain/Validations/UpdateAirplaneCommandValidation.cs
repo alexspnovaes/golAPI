@@ -6,9 +6,9 @@ using System.Text;
 
 namespace GOL.Domain.Validations
 {
-    public class NewAirplaneCommandValidation : AbstractValidator<NewAirplaneCommand>
+    public class UpdateAirplaneCommandValidation : AbstractValidator<UpdateAirplaneCommand>
     {
-        public NewAirplaneCommandValidation()
+        public UpdateAirplaneCommandValidation()
         {
             RuleFor(x => x.Airplane.Modelo).NotNull().WithMessage("Modelo cannot be null");
         }

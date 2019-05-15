@@ -14,6 +14,16 @@ namespace GOL.Domain.Entities.Airplane
             QtdPassageiros = qtdPassageiros;
             DataCriacao = DateTime.Now;
         }
+
+        public Airplane(Guid id, string codigoAviao, string modelo, int qtdPassageiros)
+        {
+            Id = id;
+            CodigoAviao = codigoAviao;
+            Modelo = modelo;
+            QtdPassageiros = qtdPassageiros;
+            DataCriacao = DateTime.Now;
+        }
+
         public string CodigoAviao { get; private set; }
         public string Modelo { get; private set; }
         public int QtdPassageiros { get; private set; }

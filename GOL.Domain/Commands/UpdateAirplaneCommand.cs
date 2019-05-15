@@ -7,9 +7,9 @@ using System.Text;
 
 namespace GOL.Domain.Commands
 {
-    public class NewAirplaneCommand : Command
+    public class UpdateAirplaneCommand : Command
     {
-        public NewAirplaneCommand(AirplaneDTO airplane)
+        public UpdateAirplaneCommand(AirplaneDTO airplane)
         {
             Airplane = airplane;
         }
@@ -18,7 +18,7 @@ namespace GOL.Domain.Commands
 
         public override bool IsValid()
         {
-            return new NewAirplaneCommandValidation().Validate(this).IsValid;
+            return new UpdateAirplaneCommandValidation().Validate(this).IsValid;
         }
     }
 }

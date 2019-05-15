@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace GOL.Commom.Publisher
+﻿namespace GOL.Commom.Publisher
 {
     
-    public abstract class Message
+    public abstract class Message : MediatR.IRequest
     {
         public string MessageType { get; protected set; }
         protected Message()

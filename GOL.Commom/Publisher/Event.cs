@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using MediatR;
 
 namespace GOL.Commom.Publisher
 {
-    public abstract class Event : Message//, INotification
+    public abstract class Event : Message, INotification
     {
     }
 }

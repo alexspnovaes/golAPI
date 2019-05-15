@@ -8,7 +8,7 @@ namespace GOL.Domain.Interfaces
 {
     public interface IAirplaneRepository
     {
-        void Add(Airplane airplane);
+        Guid Add(Airplane airplane);
         void Update(Airplane airplane);
         void Delete(Guid id);
         Airplane Get(Guid id);

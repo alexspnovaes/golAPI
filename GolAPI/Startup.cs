@@ -1,4 +1,6 @@
 ﻿using GOL.Service.Configuration;
+using GOL.Service.Middleware;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -20,7 +22,9 @@ namespace GolAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.AddMediatR(typeof(Startup));
 
             services.RegisterDependencInjector();
 
@@ -32,7 +36,7 @@ namespace GolAPI
                     Title = "GOL API",
                     Description = "GOL API V1"
                 });
-                s.IncludeXmlComments("GolAPI.Service.xml");
+                //s.IncludeXmlComments("GolAPI.Service.xml");
             });
         }
 
@@ -60,6 +64,8 @@ namespace GolAPI
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            app.UseMiddleware<ErrorHandlingMiddleware>();
 
             app.UseHttpsRedirection();
 
