@@ -11,7 +11,7 @@ using System;
 
 namespace GOL.Service.Controllers
 {
-    [Route("api/v1/airplane")]
+    [Route("api/v1/airplanes")]
     [ApiController]
     public class AirplaneController : APIController
     {
