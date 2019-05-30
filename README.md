@@ -4,37 +4,34 @@
   
   ## API .NET Core
  
-  Cadastro, ediÁ„o, exclus„o e atualizaÁ„o de um cadastro de airplane.
+  Cadastro, edi√ß√£o, exclus√£o e atualiza√ß√£o de um cadastro de airplane.
 
-- Consultar o cat·logo de discos de forma paginada, filtrando por gÍnero e ordenando de forma crescente pelo nome do disco;
-- Consultar o disco pelo seu identificador;
-- Consultar todas as vendas efetuadas de forma paginada, filtrando pelo range de datas (inicial e final) da venda e ordenando de forma decrescente pela data da venda;
-- Consultar uma venda pelo seu identificador;
-- Registrar uma nova venda de discos calculando o valor total de cashback.
-- Integrar com a API do SPotify para alimenar a coleÁ„o de Discos.
+- Consultar o cat√°logo de airplanes de forma paginada;
+- Consultar o airplane pelo seu identificador;
+- Cadastrar um novo airplane e obter o retorno do identificador √∫nico desse novo cadastro;
+- Excluir um airplane;
+- Atualizar um airplane;
 
-# Como rodar a aplicaÁ„o:
-- Possuir a ultima vers„o do  SDK (https://dot.net/core)
+# Como rodar a aplica√ß√£o:
+- Possuir a ultima vers√£o do  SDK (https://dot.net/core)
 
  ## Docker
-  Apartir do diretÛrio clonado da aplicaÁ„o:
+  Apartir do diret√≥rio clonado da aplica√ß√£o:
   - docker build -t cashback .
   - docker run -d -p 8080:80 --name cash cashback
 
  ## .NET CLI
-  Apartir do diretÛrio clonado da aplicaÁ„o:
-  dotnet run --project Cashback.Service\Cashback.Service.csProj
+  A partir do diret√≥rio clonado da aplica√ß√£o:
+  dotnet run --project GOL.Service\GOL.Service.csProj
 
   Acessar o Swagger para visualizar o endpoint e testar as chamadas
   https://localhost:5001/swagger/index.html
   
-  ## informaÁıes importantes :
+  ## informa√ß√µes importantes :
   
-   - A aplicaÁ„o esta utilizando EF Core in memory ( Apenas para testes), portanto os dados sÛ ser„o mantidos durante o ciclo de vida da aplicaÁ„o.
-   - Os dados de clientes (Buyers) e de discos est„o sendo criados no momento da inicializaÁ„o
-   - Os discos s„o buscados atravÈs da API do Spotify.
-   - TODO: A Api esta retornando classes do dominio ao invÈs de serem mapeadas para ViewModels (Automapper) 
-
+   - A aplica√ß√£o esta utilizando EF Core in memory ( Apenas para testes), portanto os dados s√≥ ser√£o mantidos durante o ciclo de vida da aplica√ß√£o.
+   - Os dados de airplanes est√£o sendo criados no momento da inicializa√ß√£o
+   
 ## Ferramentas de CI
 - Travis
 - Circle CI
@@ -53,7 +50,7 @@
 
 ## Architecture / Patterns:
 
-- Arquitetura com segregaÁ„o de respons·bilidade, utilizando Principios do SOLID
+- Arquitetura com segrega√ß√£o de respons√°bilidade, utilizando Principios do SOLID
 - Dependency Injection
 - Inversion of control
 - Domain Driven Design (Camadas and Domain Model Pattern)
